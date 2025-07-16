@@ -20,18 +20,23 @@
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <router-link
+                :to="{ name: 'pelanggan.index' }"
+                class="nav-link "
+                aria-current="page"
+                >Pelanggan</router-link
+              >
+            </li>
+            <li class="nav-item">
+              <router-link
                 :to="{ name: 'booking.index' }"
-                class="nav-link active"
+                class="nav-link "
                 aria-current="page"
                 >Booking</router-link
               >
             </li>
           </ul>
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0" role="search">
-            <a
-              href="#"
-              target="_blank"
-              class="btn btn-success"
+            <a href="#" target="_blank" class="btn btn-success"
               >GYM Membership</a
             >
           </ul>

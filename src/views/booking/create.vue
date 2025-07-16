@@ -1,72 +1,78 @@
 <script setup>
 //import ref
-import { ref, onMounted } from 'vue'
+import { ref, onMounted } from "vue";
 
 //import router
-import { useRouter } from 'vue-router'
+import { useRouter } from "vue-router";
 
 //import api
-import api from '../../api'
+import api from "../../api";
 
 //init router
-const router = useRouter()
+const router = useRouter();
 
 //define state
-const pelanggan = ref([])
-const kelasGym = ref([])
+const pelanggan = ref([]);
+const kelasGym = ref([]);
 
-const member_id = ref('')
-const class_id = ref('')
-const booking_time = ref('')
-const errors = ref([])
+const member_id = ref("");
+const class_id = ref("");
+const booking_time = ref("");
+const errors = ref([]);
 
 //method fetchDataPelanggan
 const fetchDataPelanggan = async () => {
   //fetch data
-  await api.get('/api/pelanggan-active').then(response => {
+  await api.get("/api/pelanggan-active").then((response) => {
     //set response data to state "pelanggan"
-    pelanggan.value = response.data.data
-  })
-}
+    pelanggan.value = response.data.data;
+  });
+};
 
 //method fetchDataPelanggan
 const fetchDataKelasGym = async () => {
   //fetch data
-  await api.get('/api/kelas-gym').then(response => {
+  await api.get("/api/kelas-gym").then((response) => {
     //set response data to state "kelas-gym"
-    kelasGym.value = response.data.data
-  })
-}
+    kelasGym.value = response.data.data;
+  });
+};
 
 //method "storeBooking"
 const storeBooking = async () => {
   //init formData
-  let formData = new FormData()
+  let formData = new FormData();
 
   //assign state value to formData
-  formData.append('member_id', member_id.value)
-  formData.append('class_id', class_id.value)
-  formData.append('booking_time', booking_time.value)
+  formData.append("member_id", member_id.value);
+  formData.append("class_id", class_id.value);
+  formData.append("booking_time", booking_time.value);
 
   //store data with API
   await api
-    .post('/api/booking-kelas', formData)
+    .post("/api/booking-kelas", formData)
     .then(() => {
       //redirect
-      router.push({ path: '/booking' })
+      router.push({ path: "/booking" });
     })
-    .catch(error => {
+    .catch((error) => {
       //assign response error data to state "errors"
-      errors.value = error.response.data.errors
-    })
-}
+      if (error.response?.data?.errors) {
+        errors.value = error.response.data.errors;
+      } else if (error.response?.data?.message) {
+        alert(error.response.data.message);
+      } else {
+        alert("Terjadi kesalahan tak terduga!");
+      }
+    });
+};
 
 //run hook "onMounted"
 onMounted(() => {
   //call method
-  fetchDataPelanggan()
-  fetchDataKelasGym()
-})
+  fetchDataPelanggan();
+  fetchDataKelasGym();
+});
 </script>
 
 <template>
