@@ -21,15 +21,23 @@
             <li class="nav-item">
               <router-link
                 :to="{ name: 'pelanggan.index' }"
-                class="nav-link "
+                class="nav-link"
                 aria-current="page"
                 >Pelanggan</router-link
               >
             </li>
             <li class="nav-item">
               <router-link
+                :to="{ name: 'membership.index' }"
+                class="nav-link"
+                aria-current="page"
+                >Membership</router-link
+              >
+            </li>
+            <li class="nav-item">
+              <router-link
                 :to="{ name: 'booking.index' }"
-                class="nav-link "
+                class="nav-link"
                 aria-current="page"
                 >Booking</router-link
               >

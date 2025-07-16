@@ -26,7 +26,7 @@ const routes = [
     {
         path: '/membership',
         name: 'membership.index',
-        component: () => import( /* webpackChunkName: "index" */ '../views/pelanggan/index.vue')
+        component: () => import( /* webpackChunkName: "index" */ '../views/membership/index.vue')
     },
 
 ]
