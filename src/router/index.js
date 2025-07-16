@@ -24,6 +24,11 @@ const routes = [
         component: () => import( /* webpackChunkName: "index" */ '../views/pelanggan/index.vue')
     },
     {
+        path: '/pelanggan/create',
+        name: 'pelanggan.create',
+        component: () => import( /* webpackChunkName: "create" */ '../views/pelanggan/create.vue')
+    },
+    {
         path: '/membership',
         name: 'membership.index',
         component: () => import( /* webpackChunkName: "index" */ '../views/membership/index.vue')
