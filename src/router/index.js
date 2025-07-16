@@ -18,6 +18,16 @@ const routes = [
         name: 'booking.create',
         component: () => import( /* webpackChunkName: "create" */ '../views/booking/create.vue')
     },
+    {
+        path: '/pelanggan',
+        name: 'pelanggan.index',
+        component: () => import( /* webpackChunkName: "index" */ '../views/pelanggan/index.vue')
+    },
+    {
+        path: '/create',
+        name: 'pelanggan.create',
+        component: () => import( /* webpackChunkName: "create" */ '../views/pelanggan/create.vue')
+    },
 ]
 
 //create router
