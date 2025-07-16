@@ -36,6 +36,14 @@
             </li>
             <li class="nav-item">
               <router-link
+                :to="{ name: 'kelas.index' }"
+                class="nav-link"
+                aria-current="page"
+                >Kelas Gym</router-link
+              >
+            </li>
+            <li class="nav-item">
+              <router-link
                 :to="{ name: 'booking.index' }"
                 class="nav-link"
                 aria-current="page"
