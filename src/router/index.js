@@ -38,6 +38,11 @@ const routes = [
         name: 'kelas.index',
         component: () => import( /* webpackChunkName: "index" */ '../views/kelas/index.vue')
     },
+    {
+        path: '/kelas-gym',
+        name: 'kelas.create',
+        component: () => import( /* webpackChunkName: "create" */ '../views/kelas/create.vue')
+    },
 ]
 
 //create router

@@ -25,11 +25,11 @@ onMounted(() => {
   <div class="container mt-5 mb-5">
     <div class="row">
       <div class="col-md-12">
-        <!-- <router-link
-          :to="{ name: 'pelanggan.create' }"
+        <router-link
+          :to="{ name: 'kelas.create' }"
           class="btn btn-md btn-success rounded shadow border-0 mb-3"
           >ADD NEW</router-link
-        > -->
+        >
         <div class="card border-0 rounded shadow">
           <div class="card-body">
             <table class="table table-bordered">
